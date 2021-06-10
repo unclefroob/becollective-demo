@@ -2,16 +2,25 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: #788897;
+  margin: 8px 0px;
+}
+
+.list-item-icon-container {
+  width: 60px;
+  display: flex;
+  align-items: center;
 }
 
 .list-item-arrow {
-}
-
-.list-item-arrow-container {
-  width: 10px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .list-item-folder {
-  margin: 5px;
+  padding: 5px;
+  font-size: 24px;
+}
+
+.list-item-title {
+  margin-left: 5px;
 }

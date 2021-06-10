@@ -17,17 +17,18 @@ const ListItem = props => {
   };
   return (
     <div onClick={handleClick} className="list-item-container">
-      <span className="list-item-arrow-container">
+      <span className="list-item-icon-container">
         <FontAwesomeIcon
           icon={open ? faAngleDown : faAngleRight}
           className="list-item-arrow"
         />
+
+        <FontAwesomeIcon
+          icon={open ? faFolderOpen : faFolder}
+          className="list-item-folder"
+        />
       </span>
-      <FontAwesomeIcon
-        icon={open ? faFolderOpen : faFolder}
-        className="list-item-folder"
-      />
-      {data.name}
+      <span className="list-item-title">{data.name}</span>
     </div>
   );
 };
