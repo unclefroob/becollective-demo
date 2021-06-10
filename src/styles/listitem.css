@@ -1,0 +1,17 @@
+.list-item-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list-item-arrow {
+}
+
+.list-item-arrow-container {
+  width: 10px;
+  padding: 10px;
+}
+
+.list-item-folder {
+  margin: 5px;
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ListItem from "./components/ListItem";
 import { fetchData } from "./utils";
 
 const App = () => {
@@ -8,7 +9,13 @@ const App = () => {
       changeData(res);
     });
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      {myData.map((item, i) => (
+        <ListItem key={i} data={item} />
+      ))}
+    </div>
+  );
 };
 
 export default App;
