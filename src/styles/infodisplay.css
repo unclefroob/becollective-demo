@@ -1,0 +1,9 @@
+.info-display-container {
+  border-top: 1px solid #788897;
+  padding: 10px 15px;
+  color: #788897;
+}
+
+.info-item {
+  margin: 10px 0px;
+}
