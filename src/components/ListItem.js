@@ -17,12 +17,8 @@ const ListItem = props => {
     changeOpen(!open);
   };
 
-  const children = data.children ? (
-    data.children.map((c, i) => <ListItem key={i} data={c} />)
-  ) : (
-    <></>
-  );
-  if (data.type === "folder") {
+  if (data.type === "folder" && data.children) {
+    const children = data.children.map((c, i) => <ListItem key={i} data={c} />);
     return (
       <div>
         <div onClick={handleClick} className="list-item-container">
@@ -44,19 +40,16 @@ const ListItem = props => {
     );
   } else {
     return (
-      <div>
-        <div onClick={handleClick} className="list-item-container">
-          <span className="list-item-icon-container">
-            <FontAwesomeIcon
-              icon={faFileAlt}
-              className="list-item-folder"
-              style={{ marginLeft: 21 }}
-            />
-          </span>
-          <span className="list-item-title">{data.name}</span>
-          <span className="list-item-size">{styleFileSize(data.size)}</span>
-        </div>
-        <div className="list-children">{open ? children : <></>}</div>
+      <div onClick={handleClick} className="list-item-container">
+        <span className="list-item-icon-container">
+          <FontAwesomeIcon
+            icon={faFileAlt}
+            className="list-item-folder"
+            style={{ marginLeft: 21 }}
+          />
+        </span>
+        <span className="list-item-title">{data.name}</span>
+        <span className="list-item-size">{styleFileSize(data.size)}</span>
       </div>
     );
   }
