@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ListItem from "./components/ListItem";
 import InfoDisplay from "./components/InfoDisplay";
-import { fetchData } from "./utils";
+import { fetchData, findFiles } from "./utils";
 
 const App = () => {
   const [myData, changeData] = useState([]);
@@ -10,6 +10,9 @@ const App = () => {
   useEffect(() => {
     fetchData().then(res => {
       changeData(res);
+      const parsedFiles = findFiles(res);
+      changeFileAmount(parsedFiles.files);
+      changeFileSize(parsedFiles.fileSize);
     });
   }, []);
   return (

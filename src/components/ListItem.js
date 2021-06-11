@@ -11,7 +11,6 @@ import {
 const ListItem = props => {
   const { data } = props;
   const [open, changeOpen] = useState(false);
-  console.log(data);
   const handleClick = () => {
     changeOpen(!open);
   };

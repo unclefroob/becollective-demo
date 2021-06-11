@@ -10,3 +10,26 @@ export const fetchData = () => {
   );
   return output;
 };
+
+export const findFiles = data => {
+  let files = 0;
+  let fileSize = 0;
+  data.forEach(sub => {
+    if (sub.children) {
+      sub.children.forEach(c => {
+        if (c.type === "file") {
+          files += 1;
+          fileSize += c.size;
+        } else {
+          const foundFiles = findFiles(c.children);
+          files += foundFiles.files;
+          fileSize += foundFiles.fileSize;
+        }
+      });
+    } else if (sub.type === "file") {
+      files += 1;
+      fileSize += sub.size;
+    }
+  });
+  return { files, fileSize };
+};
