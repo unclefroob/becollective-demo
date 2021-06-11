@@ -16,9 +16,11 @@ const ListItem = props => {
     changeOpen(!open);
   };
 
-  const children = data.children
-    ? data.children.map((c, i) => <ListItem key={i} data={c} />)
-    : "";
+  const children = data.children ? (
+    data.children.map((c, i) => <ListItem key={i} data={c} />)
+  ) : (
+    <></>
+  );
 
   return (
     <div>
@@ -36,7 +38,7 @@ const ListItem = props => {
         </span>
         <span className="list-item-title">{data.name}</span>
       </div>
-      <div className="list-children">{open ? children : <div></div>}</div>
+      <div className="list-children">{open ? children : <></>}</div>
     </div>
   );
 };
