@@ -15,20 +15,28 @@ const ListItem = props => {
   const handleClick = () => {
     changeOpen(!open);
   };
-  return (
-    <div onClick={handleClick} className="list-item-container">
-      <span className="list-item-icon-container">
-        <FontAwesomeIcon
-          icon={open ? faAngleDown : faAngleRight}
-          className="list-item-arrow"
-        />
 
-        <FontAwesomeIcon
-          icon={open ? faFolderOpen : faFolder}
-          className="list-item-folder"
-        />
-      </span>
-      <span className="list-item-title">{data.name}</span>
+  const children = data.children
+    ? data.children.map((c, i) => <ListItem key={i} data={c} />)
+    : "";
+
+  return (
+    <div>
+      <div onClick={handleClick} className="list-item-container">
+        <span className="list-item-icon-container">
+          <FontAwesomeIcon
+            icon={open ? faAngleDown : faAngleRight}
+            className="list-item-arrow"
+          />
+
+          <FontAwesomeIcon
+            icon={open ? faFolderOpen : faFolder}
+            className="list-item-folder"
+          />
+        </span>
+        <span className="list-item-title">{data.name}</span>
+      </div>
+      <div className="list-children">{open ? children : <div></div>}</div>
     </div>
   );
 };
