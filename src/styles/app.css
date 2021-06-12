@@ -1,0 +1,13 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.app-container-inner {
+  width: 75%;
+}
+
+.folder-structure-container {
+  margin: 15px 0px;
+}

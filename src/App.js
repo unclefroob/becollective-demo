@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ListItem from "./components/ListItem";
 import InfoDisplay from "./components/InfoDisplay";
 import { fetchData, findFiles } from "./utils";
+import "./styles/app.css";
 
 const App = () => {
   const [loaded, changeLoaded] = useState(false);
@@ -19,20 +20,24 @@ const App = () => {
   }, []);
   if (loaded) {
     return (
-      <div>
-        {myData.map((item, i) => (
-          <ListItem
-            key={i}
-            data={item}
-            changeFileAmount={changeFileAmount}
-            changeFileSize={changeFileSize}
-          />
-        ))}
-        <InfoDisplay fileAmount={fileAmount} fileSize={fileSize} />
+      <div className="app-container">
+        <div className="app-container-inner">
+          <div className="folder-structure-container">
+            {myData.map((item, i) => (
+              <ListItem
+                key={i}
+                data={item}
+                changeFileAmount={changeFileAmount}
+                changeFileSize={changeFileSize}
+              />
+            ))}
+          </div>
+          <InfoDisplay fileAmount={fileAmount} fileSize={fileSize} />
+        </div>
       </div>
     );
   } else {
-    return <div></div>;
+    return <div></div>; //add loading screen here
   }
 };
 
