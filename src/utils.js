@@ -1,3 +1,4 @@
+//fetch data from api endpoint
 export const fetchData = () => {
   const output = new Promise(resolve =>
     fetch("https://dev21.becollective.com/api/v2/coding-challenges/dirs")
@@ -11,6 +12,7 @@ export const fetchData = () => {
   return output;
 };
 
+//navigate data to find total files and total filesize
 export const findFiles = data => {
   let files = 0;
   let fileSize = 0;
@@ -34,6 +36,7 @@ export const findFiles = data => {
   return { files, fileSize };
 };
 
+//style filesize figures
 export const styleFileSize = (bytes, decimals = 2) => {
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
